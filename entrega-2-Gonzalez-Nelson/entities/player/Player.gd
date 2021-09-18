@@ -7,4 +7,7 @@ func _physics_process(delta):
 	var mouse_position:Vector2=get_global_mouse_position()
 
 	cannon.look_at(mouse_position)
+	if Input.is_action_just_pressed("fire"):
+		cannon.fire()
+	
 	position.x += direction_optimized * speed * delta
