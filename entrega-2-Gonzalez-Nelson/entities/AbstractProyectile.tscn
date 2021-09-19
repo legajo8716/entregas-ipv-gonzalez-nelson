@@ -4,3 +4,6 @@
 
 [node name="Proyectile" type="Sprite"]
 script = ExtResource( 1 )
+speed = 100.0
+
+[node name="Timer" type="Timer" parent="."]
