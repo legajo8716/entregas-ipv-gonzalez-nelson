@@ -7,3 +7,4 @@ script = ExtResource( 1 )
 speed = 100.0
 
 [node name="Timer" type="Timer" parent="."]
+one_shot = true

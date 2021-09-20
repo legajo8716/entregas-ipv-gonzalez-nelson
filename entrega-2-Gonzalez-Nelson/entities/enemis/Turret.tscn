@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://entities/enemis/Turret.gd" type="Script" id=1]
+[ext_resource path="res://assets/textures/turret.png" type="Texture" id=2]
+
+[node name="Turret" type="Sprite"]
+texture = ExtResource( 2 )
+script = ExtResource( 1 )
+projectile_scene = null
+
+[node name="FirePosition" type="Position2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
