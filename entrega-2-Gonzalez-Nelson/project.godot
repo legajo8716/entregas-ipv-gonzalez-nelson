@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "Projectile",
 "language": "GDScript",
 "path": "res://entities/AbstractProyectile.gd"
+}, {
+"base": "Sprite",
+"class": "Turret",
+"language": "GDScript",
+"path": "res://entities/AbstractTurret.gd"
 } ]
 _global_script_class_icons={
-"Projectile": ""
+"Projectile": "",
+"Turret": ""
 }
 
 [application]
