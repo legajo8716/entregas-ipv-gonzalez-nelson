@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://entities/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/textures/background.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://entities/enemies/TurretsSpawner.gd" type="Script" id=5]
 [ext_resource path="res://entities/world/Floor.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/textures/player.png" type="Texture" id=7]
+[ext_resource path="res://entities/world/pared.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32.0005, 31.041 )
@@ -27,7 +28,7 @@ __meta__ = {
 }
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 413.003, 395.272 )
+position = Vector2( 395.003, 191.272 )
 
 [node name="TurretsSpawner" type="Node" parent="."]
 script = ExtResource( 5 )
@@ -70,3 +71,6 @@ texture = ExtResource( 7 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cube2/Cube"]
 position = Vector2( 0.442032, 0.802322 )
 shape = SubResource( 1 )
+
+[node name="pared" parent="." instance=ExtResource( 8 )]
+position = Vector2( 366, 234 )
