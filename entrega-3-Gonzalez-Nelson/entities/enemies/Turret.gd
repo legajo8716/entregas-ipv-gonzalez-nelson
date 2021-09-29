@@ -10,6 +10,7 @@ var target:Node2D
 
 func _ready():
 			fire_timer.connect("timeout", self, "fire_at_player")
+			
 func initialize(container, turret_pos,  projectile_container):
 	container.add_child(self)
 	global_position = turret_pos
@@ -25,7 +26,6 @@ func fire_at_player():
 
 func _on_Area2D_body_entered(body):
 	if body is Player:
-		print(body)
 		target=body
 		fire_timer.connect("timeout",self,"fire_at_player")
 		fire_timer.start()
@@ -34,6 +34,5 @@ func _on_Area2D_body_entered(body):
 
 func _on_Area2D_body_exited(body):
 	if body is Player:
-		print("no")
 		target=body
 		fire_timer.stop()
