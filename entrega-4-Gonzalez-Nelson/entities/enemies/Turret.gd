@@ -12,6 +12,7 @@ var target
 var projectile_container
 var pathfinding:PathfindAstar
 var path :Array=[]
+var velocity:Vector2=Vector2.ZERO
 func _ready():
 	fire_timer.connect("timeout", self, "fire")
 	set_physics_process(false)
@@ -39,8 +40,8 @@ func _physics_process(delta):
 		fire_timer.stop()
 	if !path.empty():
 		var next_point:Vector2=to_local(path.front())
-		
-
+		velocity.x += clamp((next_point-position).normalized()
+	
 func notify_hit(_amount):
 	call_deferred("_remove")
 
