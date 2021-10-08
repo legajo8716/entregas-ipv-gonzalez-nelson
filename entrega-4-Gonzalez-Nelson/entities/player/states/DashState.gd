@@ -1,17 +1,23 @@
 extends "res://entities/AbstractState.gd"
 
-func handle_input(event:InputEvent):
-	if event.is_action_pressed("dash") :
-		emit_signal("finished", "dash")
-	if event.is_action_pressed("jump") && parent.is_on_floor():
-			emit_signal("finished", "jump")
-	
+func enter():
+	return
 
-func update(delta):
+# Clean up the state. Reinitialize values like a timer
+func exit():
+	return
+
+
+func handle_input(event:InputEvent):
+	pass
+
+
+func update(delta:float):
+	parent.velocity.x=parent.velocity.x*8
+	
 	parent._handle_cannon_actions()
 	parent._handle_move_input()
 	parent._apply_movement()
 	if parent.move_direction == 0:
 		emit_signal("finished", "idle")
-	
 	

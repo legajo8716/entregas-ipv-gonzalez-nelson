@@ -8,6 +8,7 @@ onready var cannon = $Cannon
 onready var state_machine = $StateMachine
 onready var floor_raycasts:Array = $FloorRaycasts.get_children()
 
+onready var collision :CollisionShape2D = $CollisionShape2D
 const FLOOR_NORMAL := Vector2.UP
 const SNAP_DIRECTION := Vector2.DOWN
 const SNAP_LENGTH := 32.0

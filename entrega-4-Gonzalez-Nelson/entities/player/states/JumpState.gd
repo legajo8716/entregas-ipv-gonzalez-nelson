@@ -8,6 +8,7 @@ func enter():
 
 
 func update(delta:float):
+
 	parent._handle_cannon_actions()
 	parent._handle_move_input()
 	if parent.move_direction==0:
@@ -18,3 +19,4 @@ func update(delta:float):
 			emit_signal("finished","walk")
 		else:
 			emit_signal("finished","idle")
+	
