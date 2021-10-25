@@ -73,7 +73,9 @@ current = true
 [node name="TurretSpawn" type="Node" parent="Environment"]
 script = ExtResource( 8 )
 element_scene = ExtResource( 4 )
+spawn_element = false
 pathfind_scene = ExtResource( 11 )
+generate_pathfind = false
 pathfind_path = NodePath("AstarTilemap")
 
 [node name="Turret" parent="Environment/TurretSpawn" instance=ExtResource( 4 )]
@@ -177,4 +179,5 @@ speed = 300.0
 position = Vector2( 180.489, 268.887 )
 
 [editable path="Environment/hurt_zone"]
+
 [editable path="Environment/hurt_zone2"]
