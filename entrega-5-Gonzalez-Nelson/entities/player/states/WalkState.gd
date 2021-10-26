@@ -1,5 +1,6 @@
 extends "res://entities/AbstractState.gd"
-
+func enter():
+	parent._play_animation("walk")
 
 func handle_input(event:InputEvent):
 	if event.is_action_pressed("jump") && parent.is_on_floor():
@@ -13,3 +14,8 @@ func update(delta):
 	parent._apply_movement()
 	if parent.move_direction == 0:
 		emit_signal("finished", "idle")
+	else:
+		parent.body.flip_h=parent.move_direction<1
+
+func _on_animation_finished(anim_name:String):
+	parent.animation_player.play("walk")

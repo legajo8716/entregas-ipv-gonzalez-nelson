@@ -7,7 +7,8 @@ signal dead()
 onready var cannon = $Cannon
 onready var state_machine = $StateMachine
 onready var floor_raycasts:Array = $FloorRaycasts.get_children()
-
+onready var animation_player = $AnimationPlayer
+onready var body = $Body
 const FLOOR_NORMAL := Vector2.UP
 const SNAP_DIRECTION := Vector2.DOWN
 const SNAP_LENGTH := 32.0
@@ -83,4 +84,6 @@ func is_on_floor()->bool:
 		is_colliding = is_colliding || raycast.is_colliding()
 	return is_colliding
 
-
+func _play_animation(name):
+	if(animation_player.has_animation(name)):
+		animation_player.play(name)
