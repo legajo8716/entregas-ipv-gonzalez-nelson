@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://entities/player/Player.gd" type="Script" id=1]
 [ext_resource path="res://entities/player/states/WalkState.gd" type="Script" id=2]
@@ -16,8 +16,54 @@
 radius = 31.6034
 height = 24.6237
 
+[sub_resource type="Animation" id=5]
+resource_name = "dead"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 29 ]
+}
+
 [sub_resource type="Animation" id=2]
-resource_name = "walk"
+resource_name = "idle"
+length = 1.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "jump"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 88 ]
+}
+
+[sub_resource type="Animation" id=3]
 length = 4.0
 loop = true
 step = 0.041
@@ -61,12 +107,12 @@ dash_time = 0.4
 speed_multiplier = 4.0
 
 [node name="Body" type="Sprite" parent="."]
-position = Vector2( 11.5, 55.0001 )
+position = Vector2( -15, -8.99999 )
 scale = Vector2( 0.306582, 0.327625 )
 texture = ExtResource( 7 )
-vframes = 8
 hframes = 15
-frame = 99
+vframes = 8
+frame = 29
 
 [node name="Cannon" type="Sprite" parent="."]
 texture = ExtResource( 8 )
@@ -77,11 +123,11 @@ projectile_scene = ExtResource( 5 )
 position = Vector2( 16, -30 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -7, 48 )
+position = Vector2( 0, 9 )
 shape = SubResource( 1 )
 
 [node name="FloorRaycasts" type="Node2D" parent="."]
-position = Vector2( 0, 45 )
+position = Vector2( 0, 52.5935 )
 
 [node name="FloorRaycast1" type="RayCast2D" parent="FloorRaycasts"]
 cast_to = Vector2( 0, 5 )
@@ -95,4 +141,7 @@ position = Vector2( 15, 0 )
 cast_to = Vector2( 0, 5 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/walk = SubResource( 2 )
+anims/dead = SubResource( 5 )
+anims/idle = SubResource( 2 )
+anims/jump = SubResource( 4 )
+anims/walk = SubResource( 3 )

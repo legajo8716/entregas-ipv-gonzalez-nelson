@@ -15,7 +15,5 @@ func update(delta):
 	if parent.move_direction == 0:
 		emit_signal("finished", "idle")
 	else:
-		parent.body.flip_h=parent.move_direction<1
+		parent.body.flip_h=parent.move_direction==-1
 
-func _on_animation_finished(anim_name:String):
-	parent.animation_player.play("walk")

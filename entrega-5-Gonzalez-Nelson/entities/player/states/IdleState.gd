@@ -1,4 +1,6 @@
 extends "res://entities/AbstractState.gd"
+func enter():
+	parent._play_animation("idle")
 
 
 func handle_input(event:InputEvent):
@@ -14,3 +16,5 @@ func update(delta:float):
 	parent._apply_movement()
 
 	
+func _on_animation_finished(anim_name:String):
+	parent.animation_player.play("idle")

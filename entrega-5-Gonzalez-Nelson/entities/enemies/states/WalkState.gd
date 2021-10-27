@@ -14,6 +14,7 @@ func notify_body_entered(body):
 
 
 func enter():
+	parent._play_animation("walk")
 	var random_point:Vector2 = parent.global_position + Vector2(rand_range(-wander_radius.x, wander_radius.x), rand_range(-wander_radius.y, wander_radius.y))
 	path = parent.pathfinding.get_simple_path(parent.global_position, random_point)
 	if path.empty():

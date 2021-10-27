@@ -11,6 +11,7 @@ func notify_body_entered(body):
 
 func enter():
 	idle_timer.start()
+	parent._play_animation("walk")
 
 
 func exit():
