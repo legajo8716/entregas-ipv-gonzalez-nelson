@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=51 format=2]
 
 [ext_resource path="res://assets/textures/enemies/cat/Dead (1).png" type="Texture" id=1]
 [ext_resource path="res://entities/enemies/Turret.gd" type="Script" id=2]
@@ -30,6 +30,23 @@
 [ext_resource path="res://assets/textures/enemies/cat/Walk (4).png" type="Texture" id=28]
 [ext_resource path="res://assets/textures/enemies/cat/Walk (7).png" type="Texture" id=29]
 [ext_resource path="res://assets/textures/enemies/cat/Walk (8).png" type="Texture" id=30]
+[ext_resource path="res://assets/textures/enemies/cat/Idle (10).png" type="Texture" id=31]
+[ext_resource path="res://assets/textures/enemies/cat/Idle (9).png" type="Texture" id=32]
+[ext_resource path="res://assets/textures/enemies/cat/Idle (8).png" type="Texture" id=33]
+[ext_resource path="res://assets/textures/enemies/cat/Idle (7).png" type="Texture" id=34]
+[ext_resource path="res://assets/textures/enemies/cat/Idle (6).png" type="Texture" id=35]
+[ext_resource path="res://assets/textures/enemies/cat/Idle (5).png" type="Texture" id=36]
+[ext_resource path="res://assets/textures/enemies/cat/Idle (4).png" type="Texture" id=37]
+[ext_resource path="res://assets/textures/enemies/cat/Idle (3).png" type="Texture" id=38]
+[ext_resource path="res://assets/textures/enemies/cat/Idle (1).png" type="Texture" id=39]
+[ext_resource path="res://assets/textures/enemies/cat/Idle (2).png" type="Texture" id=40]
+[ext_resource path="res://assets/textures/enemies/cat/Fall (1).png" type="Texture" id=41]
+[ext_resource path="res://assets/textures/enemies/cat/Fall (2).png" type="Texture" id=42]
+[ext_resource path="res://assets/textures/enemies/cat/Fall (4).png" type="Texture" id=43]
+[ext_resource path="res://assets/textures/enemies/cat/Fall (5).png" type="Texture" id=44]
+[ext_resource path="res://assets/textures/enemies/cat/Fall (6).png" type="Texture" id=45]
+[ext_resource path="res://assets/textures/enemies/cat/Fall (7).png" type="Texture" id=46]
+[ext_resource path="res://assets/textures/enemies/cat/Fall (8).png" type="Texture" id=47]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 15.5511, 31.944 )
@@ -39,6 +56,16 @@ radius = 328.39
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
+"frames": [ ExtResource( 39 ), ExtResource( 40 ), ExtResource( 38 ), ExtResource( 37 ), ExtResource( 36 ), ExtResource( 35 ), ExtResource( 34 ), ExtResource( 33 ), ExtResource( 32 ), ExtResource( 31 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 41 ), ExtResource( 42 ), ExtResource( 13 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ) ],
+"loop": true,
+"name": "alert",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 1 ), ExtResource( 21 ), ExtResource( 20 ), ExtResource( 17 ), ExtResource( 12 ), ExtResource( 14 ), ExtResource( 18 ), ExtResource( 22 ), ExtResource( 19 ), ExtResource( 11 ), ExtResource( 13 ) ],
 "loop": true,
 "name": "dead",
@@ -51,7 +78,7 @@ animations = [ {
 } ]
 
 [node name="Turret" type="KinematicBody2D"]
-position = Vector2( 19.377, 0 )
+position = Vector2( 19.377, 5.65686 )
 collision_layer = 4
 collision_mask = 5
 script = ExtResource( 2 )
@@ -85,6 +112,7 @@ one_shot = true
 script = ExtResource( 10 )
 
 [node name="FirePosition" type="Position2D" parent="."]
+visible = false
 position = Vector2( -14.6792, 15.2037 )
 
 [node name="RayCast2D" type="RayCast2D" parent="FirePosition"]
@@ -112,11 +140,10 @@ shape = SubResource( 2 )
 position = Vector2( -17.0457, -3.8147e-06 )
 scale = Vector2( 0.258938, 0.270785 )
 frames = SubResource( 3 )
-animation = "walk"
+animation = "alert"
 __meta__ = {
 "_edit_group_": true
 }
-
 [connection signal="timeout" from="StateMachine/Idle/IdleTimer" to="StateMachine/Idle" method="_on_IdleTimer_timeout"]
 [connection signal="timeout" from="StateMachine/Alert/FireTimer" to="StateMachine/Alert" method="_on_FireTimer_timeout"]
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_DetectionArea_body_entered"]
