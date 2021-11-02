@@ -17,6 +17,7 @@ func enter():
 	parent._play_animation("walk", false, 2.0)
 
 
+
 func exit():
 	dash_timer.stop()
 

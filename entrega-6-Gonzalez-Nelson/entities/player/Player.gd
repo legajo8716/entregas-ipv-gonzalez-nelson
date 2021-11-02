@@ -10,8 +10,9 @@ onready var cannon_container = $Body/Slime/CannonContainer
 onready var state_machine = $StateMachine
 onready var floor_raycasts:Array = $FloorRaycasts.get_children()
 onready var player_animation = $PlayerAnimation
+onready var player_dash = $PlayerDash
 onready var player_fsx = $PlayerFsx
-
+export (bool) var deadMusic=false
 const FLOOR_NORMAL := Vector2.UP
 const SNAP_DIRECTION := Vector2.DOWN
 const SNAP_LENGTH := 32.0
@@ -89,6 +90,7 @@ func _apply_movement():
 
 func notify_hit(amount):
 	state_machine.notify_hit(amount)
+	_dash_audio()
 
 
 func _remove():
@@ -119,3 +121,7 @@ func _fire_audio():
 	player_fsx.stream=fire_sfx
 
 	player_fsx.play()
+func _dead_audio():
+	deadMusic=true
+func _dash_audio():
+	player_dash.play()

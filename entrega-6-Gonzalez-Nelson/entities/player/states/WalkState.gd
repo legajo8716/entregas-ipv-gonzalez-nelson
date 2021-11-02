@@ -5,6 +5,7 @@ func enter():
 	parent._play_animation("walk", false)
 
 
+
 func handle_input(event:InputEvent):
 	if event.is_action_pressed("jump") && parent.is_on_floor():
 		emit_signal("finished", "jump")

@@ -450,9 +450,7 @@ current = true
 [node name="TurretSpawn" type="Node" parent="Environment"]
 script = ExtResource( 8 )
 element_scene = ExtResource( 4 )
-spawn_element = false
 pathfind_scene = ExtResource( 11 )
-generate_pathfind = false
 pathfind_path = NodePath("AstarTilemap")
 
 [node name="Cat" parent="Environment/TurretSpawn" instance=ExtResource( 4 )]
@@ -562,10 +560,9 @@ position = Vector2( 3462, 979.567 )
 stream = ExtResource( 28 )
 autoplay = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="backgroundEnvironment" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 29 )
 autoplay = true
 
 [editable path="Environment/hurt_zone"]
-
 [editable path="Environment/hurt_zone2"]

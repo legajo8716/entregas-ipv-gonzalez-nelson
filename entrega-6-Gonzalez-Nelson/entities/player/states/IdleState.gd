@@ -3,6 +3,7 @@ extends "res://entities/AbstractState.gd"
 
 func enter():
 	parent._play_animation("idle")
+	
 
 
 func handle_input(event:InputEvent):

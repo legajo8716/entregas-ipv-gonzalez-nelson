@@ -5,7 +5,7 @@ onready var fire_position = $FirePosition
 onready var raycast = $FirePosition/RayCast2D
 onready var detection_area = $DetectionArea
 onready var remove_anim_player = $RemoveAnimPlayer
-
+onready var cat_attack = $CatAttack
 onready var body_sprite:AnimatedSprite = $Body
 
 onready var state_machine = $StateMachine
@@ -31,6 +31,7 @@ func initialize(container, turret_pos, projectile_container):
 
 func fire():
 	if target != null:
+		cat_attack.play()
 		var proj_instance = projectile_scene.instance()
 		if projectile_container == null:
 			projectile_container = get_parent()
