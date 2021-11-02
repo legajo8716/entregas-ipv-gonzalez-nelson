@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://entities/player/Player.gd" type="Script" id=1]
 [ext_resource path="res://entities/player/states/WalkState.gd" type="Script" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://entities/player/states/DashState.gd" type="Script" id=11]
 [ext_resource path="res://assets/textures/player/raygunPurpleBig.png" type="Texture" id=12]
 [ext_resource path="res://assets/audio/sfx/PlayerAttack.ogg" type="AudioStream" id=13]
+[ext_resource path="res://assets/audio/sfx/Leaves1.ogg" type="AudioStream" id=14]
 
 [sub_resource type="Animation" id=1]
 resource_name = "dead"
@@ -122,7 +123,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ null ]
+"values": [ ExtResource( 14 ) ]
 }
 
 [sub_resource type="AtlasTexture" id=5]
@@ -173,7 +174,7 @@ texture = SubResource( 5 )
 offset = Vector2( 50, 0 )
 vframes = 8
 hframes = 15
-frame = 95
+frame = 79
 
 [node name="Slime" type="Sprite" parent="Body"]
 position = Vector2( -2.52264, -144.634 )
@@ -214,3 +215,4 @@ cast_to = Vector2( 0, 5 )
 autoplay = true
 
 [node name="PlayerInteraction" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )

@@ -173,11 +173,11 @@ cast_to = Vector2( 0, 0 )
 collision_mask = 3
 
 [node name="Body" type="AnimatedSprite" parent="."]
-position = Vector2( 4.33561, 2.42019 )
-scale = Vector2( 0.202534, 0.219259 )
+position = Vector2( 4.33561, -14.8775 )
+scale = Vector2( 0.266352, 0.288347 )
 frames = SubResource( 1 )
 animation = "idle"
-frame = 2
+frame = 6
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
