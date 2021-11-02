@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=2]
+[gd_scene load_steps=53 format=2]
 
 [ext_resource path="res://assets/textures/enemies/cat/Idle (1).png" type="Texture" id=1]
 [ext_resource path="res://entities/enemies/Cat.gd" type="Script" id=2]
@@ -47,6 +47,7 @@
 [ext_resource path="res://assets/textures/enemies/cat/Walk (8).png" type="Texture" id=45]
 [ext_resource path="res://assets/textures/enemies/cat/Walk (9).png" type="Texture" id=46]
 [ext_resource path="res://assets/textures/enemies/cat/Walk (10).png" type="Texture" id=47]
+[ext_resource path="res://assets/audio/sfx/angryCat.ogg" type="AudioStream" id=48]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -118,6 +119,20 @@ tracks/2/keys = {
 "method": "_remove"
 } ]
 }
+tracks/3/type = "audio"
+tracks/3/path = NodePath("CatFsx")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 48 )
+} ],
+"times": PoolRealArray( 0 )
+}
 
 [node name="Cat" type="KinematicBody2D"]
 collision_layer = 4
@@ -158,10 +173,11 @@ cast_to = Vector2( 0, 0 )
 collision_mask = 3
 
 [node name="Body" type="AnimatedSprite" parent="."]
-position = Vector2( 4.33561, -14.8775 )
-scale = Vector2( 0.266352, 0.288347 )
+position = Vector2( 4.33561, 2.42019 )
+scale = Vector2( 0.202534, 0.219259 )
 frames = SubResource( 1 )
 animation = "idle"
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -184,6 +200,8 @@ shape = SubResource( 3 )
 [node name="RemoveAnimPlayer" type="AnimationPlayer" parent="."]
 anims/remove = SubResource( 4 )
 
+[node name="CatFsx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 48 )
 [connection signal="timeout" from="StateMachine/Idle/IdleTimer" to="StateMachine/Idle" method="_on_IdleTimer_timeout"]
 [connection signal="timeout" from="StateMachine/Alert/FireTimer" to="StateMachine/Alert" method="_on_FireTimer_timeout"]
 [connection signal="animation_finished" from="Body" to="." method="_on_Body_animation_finished"]
