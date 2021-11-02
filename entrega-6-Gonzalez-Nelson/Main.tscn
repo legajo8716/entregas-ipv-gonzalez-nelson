@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://entities/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/textures/tileset/Mossy - TileSet.png" type="Texture" id=2]
@@ -28,6 +28,7 @@
 [ext_resource path="res://GUI/HearthTexture.tscn" type="PackedScene" id=26]
 [ext_resource path="res://enviroment/items/GreenGem.tscn" type="PackedScene" id=27]
 [ext_resource path="res://assets/audio/bgm/bgm.ogg" type="AudioStream" id=28]
+[ext_resource path="res://assets/audio/textures/WindAndBirds.ogg" type="AudioStream" id=29]
 
 [sub_resource type="DynamicFont" id=1]
 size = 100
@@ -559,6 +560,10 @@ position = Vector2( 3462, 979.567 )
 
 [node name="background" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 28 )
+autoplay = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 29 )
 autoplay = true
 
 [editable path="Environment/hurt_zone"]
